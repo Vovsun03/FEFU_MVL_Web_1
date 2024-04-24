@@ -32,16 +32,8 @@ class ImageApp(QWidget):
     def run(self):
         while True:
             try:
-                # Проверить, есть ли входящие соединения
                 conn, addr = self.sock.accept()
-
-                # Получить сообщение
-                data = conn.recv(1024)
-
-                # Сменить картинку
                 self.show_random_image()
-
-                # Закрыть соединение
                 conn.close()
             except socket.timeout:
                 pass
