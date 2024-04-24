@@ -21,7 +21,6 @@ class ImageApp(QWidget):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.bind(('', 1234))
         self.sock.listen(1)
-        self.sock.settimeout(0.1)
         self.show()
 
     def show_random_image(self):
@@ -30,13 +29,10 @@ class ImageApp(QWidget):
         self.label.setPixmap(pixmap)
 
     def run(self):
+        conn, addr = self.sock.accept()
         while True:
-            try:
-                conn, addr = self.sock.accept()
-                self.show_random_image()
-                conn.close()
-            except socket.timeout:
-                pass
+            self.show_random_image()
+            conn.close()
 
 
 if __name__ == '__main__':
