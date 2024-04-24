@@ -19,7 +19,6 @@ class ButtonApp(QWidget):
     def on_click(self):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect(('95.154.118.183', 1234))
-        sock.send(b'1')
         sock.close()
 
 
