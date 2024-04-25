@@ -15,7 +15,6 @@ class ImageApp(QWidget):
         self.setWindowTitle('Image App')
         self.setGeometry(300, 300, 300, 300)
         self.label = QLabel(self)
-        self.label.setFixedSize(300, 300)
         self.images = ['1.jpeg', '2.jpeg', '3.jpeg', '4.jpeg']
         self.show_random_image()
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
